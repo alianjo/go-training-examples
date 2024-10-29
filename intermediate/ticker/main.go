@@ -46,6 +46,6 @@ func main() {
 		}
 	}()
 	time.Sleep(time.Second * 5)
-	<-done
+	done <- true
 	fmt.Println("We are Finished")
 }
