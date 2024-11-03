@@ -38,3 +38,9 @@ func TestMultipleData(t *testing.T) {
 		})
 	}
 }
+
+func BenchmarkRequests(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		fibonacci(5)
+	}
+}
