@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestFibo(t *testing.T) {
 	res := fibonacci(6)
@@ -26,9 +29,12 @@ func TestMultipleData(t *testing.T) {
 		{10, 55},
 	}
 	for _, tt := range tests {
-		res := fibonacci(tt.a)
-		if res != tt.want {
-			t.Errorf("Expected %d but got %d", tt.want, res)
-		}
+		test := fmt.Sprintf("test number: %d, expected result: %d", tt.a, tt.want)
+		t.Run(test, func(t *testing.T) {
+			resp := fibonacci(tt.a)
+			if resp != tt.want {
+				t.Errorf("Got error for input %d, expected %d but got %d", tt.a, tt.want, resp)
+			}
+		})
 	}
 }
